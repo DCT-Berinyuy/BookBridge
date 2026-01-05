@@ -1,0 +1,19 @@
+name: book_bridge_app
+description: "An online classified marketplace that enables students to discover, buy, and sell used physical books within their locality."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.10.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
