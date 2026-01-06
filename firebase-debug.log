@@ -16,3 +16,376 @@
 [debug] [2026-01-05T22:27:09.330Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
 [debug] [2026-01-05T22:27:09.333Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
 [debug] [2026-01-05T22:27:09.335Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:28:58.227Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:28:58.233Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:28:58.263Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:28:58.263Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:28:58.619Z] Checked if tokens are valid: false, expires at: 1767665663672
+[debug] [2026-01-06T08:28:58.625Z] Checked if tokens are valid: false, expires at: 1767665663672
+[debug] [2026-01-06T08:28:58.626Z] > refreshing access token with scopes: []
+[debug] [2026-01-06T08:28:58.631Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-06T08:28:58.632Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-06T08:28:58.639Z] Checked if tokens are valid: false, expires at: 1767665663672
+[debug] [2026-01-06T08:28:58.639Z] Checked if tokens are valid: false, expires at: 1767665663672
+[debug] [2026-01-06T08:28:58.639Z] > refreshing access token with scopes: []
+[debug] [2026-01-06T08:28:58.640Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-06T08:28:58.640Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-06T08:28:59.201Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-06T08:28:59.201Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-06T08:28:59.217Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [none]
+[debug] [2026-01-06T08:28:59.218Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com x-goog-quota-user=projects/
+[debug] [2026-01-06T08:28:59.261Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-06T08:28:59.262Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-06T08:28:59.271Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [none]
+[debug] [2026-01-06T08:28:59.271Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com x-goog-quota-user=projects/
+[debug] [2026-01-06T08:29:00.377Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com 400
+[debug] [2026-01-06T08:29:00.377Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [omitted]
+[debug] [2026-01-06T08:29:00.434Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com 400
+[debug] [2026-01-06T08:29:00.434Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [omitted]
+[debug] [2026-01-06T08:29:00.565Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:29:00.566Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:29:00.574Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:29:00.575Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:29:00.785Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:29:00.786Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:29:00.790Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:29:00.790Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:47:51.220Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:47:51.225Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:47:51.250Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:47:51.251Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:47:51.409Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:47:51.410Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:47:51.413Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [none]
+[debug] [2026-01-06T08:47:51.413Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com x-goog-quota-user=projects/
+[debug] [2026-01-06T08:47:51.417Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:47:51.417Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:47:51.418Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [none]
+[debug] [2026-01-06T08:47:51.418Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com x-goog-quota-user=projects/
+[debug] [2026-01-06T08:47:52.789Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com 400
+[debug] [2026-01-06T08:47:52.789Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [omitted]
+[debug] [2026-01-06T08:47:52.830Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com 400
+[debug] [2026-01-06T08:47:52.830Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [omitted]
+[debug] [2026-01-06T08:47:53.012Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:47:53.013Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:47:53.021Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:47:53.022Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:47:53.269Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:47:53.270Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:47:53.287Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:47:53.288Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:52:27.058Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:52:27.061Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:52:27.090Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:52:27.091Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:52:27.205Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:52:27.206Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:52:27.207Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [none]
+[debug] [2026-01-06T08:52:27.207Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com x-goog-quota-user=projects/
+[debug] [2026-01-06T08:52:27.210Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:52:27.210Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:52:27.211Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [none]
+[debug] [2026-01-06T08:52:27.211Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com x-goog-quota-user=projects/
+[debug] [2026-01-06T08:52:28.000Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com 400
+[debug] [2026-01-06T08:52:28.001Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [omitted]
+[debug] [2026-01-06T08:52:28.249Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:52:28.254Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:52:28.268Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:52:28.269Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:52:28.417Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com 400
+[debug] [2026-01-06T08:52:28.418Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects//services/firebaseappdistribution.googleapis.com [omitted]
+[debug] [2026-01-06T08:52:28.501Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:52:28.501Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:52:28.504Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:52:28.504Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:56:59.690Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:56:59.691Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:56:59.694Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:56:59.695Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:56:59.696Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:56:59.696Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:56:59.696Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2026-01-06T08:56:59.697Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/book-bridge-app
+[debug] [2026-01-06T08:57:01.357Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app/services/cloudresourcemanager.googleapis.com 403
+[debug] [2026-01-06T08:57:01.358Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2026-01-06T08:57:01.359Z] Unable to check that https://cloudresourcemanager.googleapis.com is enabled on book-bridge-app. Calls to it will fail if it is not enabled
+[debug] [2026-01-06T08:57:01.362Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:01.362Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:01.363Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app [none]
+[debug] [2026-01-06T08:57:02.281Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app 403
+[debug] [2026-01-06T08:57:02.282Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-01-06T08:57:02.317Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:02.317Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:02.322Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2026-01-06T08:57:02.323Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"book-bridge-app","name":"BookBridge App"}
+[debug] [2026-01-06T08:57:02.650Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 409
+[debug] [2026-01-06T08:57:02.651Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2026-01-06T08:57:36.808Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:57:36.809Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:57:36.813Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:57:36.813Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:57:36.814Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:36.814Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:36.815Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2026-01-06T08:57:36.815Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-06T08:57:38.203Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com 403
+[debug] [2026-01-06T08:57:38.203Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2026-01-06T08:57:38.204Z] Unable to check that https://cloudresourcemanager.googleapis.com is enabled on book-bridge-app-1704518400. Calls to it will fail if it is not enabled
+[debug] [2026-01-06T08:57:38.204Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:38.204Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:38.204Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app-1704518400 [none]
+[debug] [2026-01-06T08:57:39.629Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app-1704518400 403
+[debug] [2026-01-06T08:57:39.629Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app-1704518400 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-01-06T08:57:39.631Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:39.631Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:39.632Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2026-01-06T08:57:39.633Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"book-bridge-app-1704518400","name":"BookBridge App"}
+[debug] [2026-01-06T08:57:40.037Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2026-01-06T08:57:40.038Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.5686404732641703983"}
+[debug] [2026-01-06T08:57:40.048Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:40.048Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:40.051Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 [none]
+[debug] [2026-01-06T08:57:40.818Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 200
+[debug] [2026-01-06T08:57:40.819Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 {"name":"operations/create_project.global.5686404732641703983"}
+[debug] [2026-01-06T08:57:41.321Z] [Project Creation Poller] Retrying task index 0
+[debug] [2026-01-06T08:57:41.325Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:41.326Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:41.327Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 [none]
+[debug] [2026-01-06T08:57:41.632Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 200
+[debug] [2026-01-06T08:57:41.633Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 {"name":"operations/create_project.global.5686404732641703983"}
+[debug] [2026-01-06T08:57:42.635Z] [Project Creation Poller] Retrying task index 0
+[debug] [2026-01-06T08:57:42.636Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:42.637Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:42.637Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 [none]
+[debug] [2026-01-06T08:57:42.934Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 200
+[debug] [2026-01-06T08:57:42.935Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5686404732641703983 {"name":"operations/create_project.global.5686404732641703983","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"133663465316","projectId":"book-bridge-app-1704518400","lifecycleState":"ACTIVE","name":"BookBridge App","createTime":"2026-01-06T08:57:41.356821Z"}}
+[debug] [2026-01-06T08:57:42.937Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:42.937Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:42.937Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400:addFirebase [none]
+[debug] [2026-01-06T08:57:47.073Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400:addFirebase 200
+[debug] [2026-01-06T08:57:47.074Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400:addFirebase {"name":"operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk"}
+[debug] [2026-01-06T08:57:47.075Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:47.075Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:47.076Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk [none]
+[debug] [2026-01-06T08:57:52.069Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk 200
+[debug] [2026-01-06T08:57:52.069Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk {"name":"operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk"}
+[debug] [2026-01-06T08:57:52.571Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-01-06T08:57:52.573Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:52.573Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:52.574Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk [none]
+[debug] [2026-01-06T08:57:53.547Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk 200
+[debug] [2026-01-06T08:57:53.547Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk {"name":"operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk"}
+[debug] [2026-01-06T08:57:54.548Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-01-06T08:57:54.549Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:54.550Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:54.550Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk [none]
+[debug] [2026-01-06T08:57:55.261Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk 200
+[debug] [2026-01-06T08:57:55.261Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk {"name":"operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk"}
+[debug] [2026-01-06T08:57:57.262Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-01-06T08:57:57.262Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:57.262Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:57:57.262Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk [none]
+[debug] [2026-01-06T08:57:58.067Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk 200
+[debug] [2026-01-06T08:57:58.069Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk {"name":"operations/workflows/YmFhMTNmMTItZTg0Ny00NjMxLWFjNmMtYzBhZDg5ZDU4MjVk","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"book-bridge-app-1704518400","projectNumber":"133663465316","displayName":"BookBridge App","name":"projects/book-bridge-app-1704518400","resources":{"hostingSite":"book-bridge-app-1704518400"}}}
+[info] 
+[info] 🎉🎉🎉 Your Firebase project is ready! 🎉🎉🎉
+[info] 
+[info] Project information:
+[info]    - Project ID: book-bridge-app-1704518400
+[info]    - Project Name: BookBridge App
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/book-bridge-app-1704518400/overview
+[debug] [2026-01-06T08:58:26.192Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:58:26.193Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:58:35.882Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:58:35.883Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:58:35.887Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:58:35.887Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:58:35.888Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:35.888Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:35.888Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2026-01-06T08:58:35.889Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-06T08:58:37.990Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com 200
+[debug] [2026-01-06T08:58:37.990Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2026-01-06T08:58:38.000Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:38.000Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:38.001Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app-1704518400 [none]
+[debug] [2026-01-06T08:58:39.629Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app-1704518400 200
+[debug] [2026-01-06T08:58:39.629Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/book-bridge-app-1704518400 {"projectNumber":"133663465316","projectId":"book-bridge-app-1704518400","lifecycleState":"ACTIVE","name":"BookBridge App","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-01-06T08:57:41.356821Z"}
+[info] Now using project book-bridge-app-1704518400
+[debug] [2026-01-06T08:58:48.343Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:58:48.343Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:58:48.344Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:48.344Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:48.344Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:58:49.766Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:58:49.767Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T08:58:49.788Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:58:49.789Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:58:49.790Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:49.790Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:49.790Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:58:50.242Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:58:50.243Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T08:58:50.250Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:50.251Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:50.252Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/androidApps [none]
+[debug] [2026-01-06T08:58:50.252Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/androidApps {"packageName":"com.example.book_bridge_app"}
+[debug] [2026-01-06T08:58:52.018Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/androidApps 200
+[debug] [2026-01-06T08:58:52.019Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/androidApps {"name":"operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx"}
+[debug] [2026-01-06T08:58:52.020Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:52.023Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:52.024Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx [none]
+[debug] [2026-01-06T08:58:52.524Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx 200
+[debug] [2026-01-06T08:58:52.526Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx {"name":"operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx"}
+[debug] [2026-01-06T08:58:53.029Z] [Create Android app Poller] Retrying task index 0
+[debug] [2026-01-06T08:58:53.034Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:53.035Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:53.035Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx [none]
+[debug] [2026-01-06T08:58:53.555Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx 200
+[debug] [2026-01-06T08:58:53.556Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx {"name":"operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx"}
+[debug] [2026-01-06T08:58:54.558Z] [Create Android app Poller] Retrying task index 0
+[debug] [2026-01-06T08:58:54.559Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:54.559Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:54.559Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx [none]
+[debug] [2026-01-06T08:58:55.001Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx 200
+[debug] [2026-01-06T08:58:55.003Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx {"name":"operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx"}
+[debug] [2026-01-06T08:58:57.007Z] [Create Android app Poller] Retrying task index 0
+[debug] [2026-01-06T08:58:57.009Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:57.009Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:58:57.010Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx [none]
+[debug] [2026-01-06T08:58:57.488Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx 200
+[debug] [2026-01-06T08:58:57.489Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx {"name":"operations/workflows/ODQ4MWM1NzctYmY5NC00Y2MyLWJjYTctY2Y1ZjJlMGNhMDgx","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.AndroidApp","name":"projects/book-bridge-app-1704518400/androidApps/1:133663465316:android:6a66ea3596858a07106471","appId":"1:133663465316:android:6a66ea3596858a07106471","projectId":"book-bridge-app-1704518400","packageName":"com.example.book_bridge_app","apiKeyId":"93620ae8-8ac0-4ea9-ab2d-a1f6c93208d5","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z","etag":"1_0e1d1495-79e8-46ed-b39e-6c8dff53db5e"}}
+[debug] [2026-01-06T08:59:13.647Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:59:13.647Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:59:13.647Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:13.647Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:13.648Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:59:15.029Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:59:15.029Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T08:59:15.037Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:59:15.037Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:59:15.038Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:15.038Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:15.038Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:59:16.083Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:59:16.083Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T08:59:16.088Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:16.089Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:16.089Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps [none]
+[debug] [2026-01-06T08:59:16.090Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps {"bundleId":"com.example.book_bridge_app"}
+[debug] [2026-01-06T08:59:17.013Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps 400
+[debug] [2026-01-06T08:59:17.014Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps {"error":{"code":400,"message":"Request contains an invalid argument.","status":"INVALID_ARGUMENT"}}
+[debug] [2026-01-06T08:59:17.015Z] Request to https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps had HTTP Error: 400, Request contains an invalid argument.
+[debug] [2026-01-06T08:59:27.035Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:59:27.035Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:59:27.036Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:27.036Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:27.036Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:59:27.926Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:59:27.926Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T08:59:27.935Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:59:27.935Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:59:27.935Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:27.935Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:27.935Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:59:28.385Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:59:28.387Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T08:59:28.392Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:28.393Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:28.394Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps [none]
+[debug] [2026-01-06T08:59:28.394Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps {"bundleId":"com.bookbridge.app"}
+[debug] [2026-01-06T08:59:30.212Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps 200
+[debug] [2026-01-06T08:59:30.212Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps {"name":"operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw"}
+[debug] [2026-01-06T08:59:30.213Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:30.213Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:30.214Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw [none]
+[debug] [2026-01-06T08:59:30.697Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw 200
+[debug] [2026-01-06T08:59:30.698Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw {"name":"operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw"}
+[debug] [2026-01-06T08:59:31.202Z] [Create iOS app Poller] Retrying task index 0
+[debug] [2026-01-06T08:59:31.203Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:31.203Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:31.204Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw [none]
+[debug] [2026-01-06T08:59:31.748Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw 200
+[debug] [2026-01-06T08:59:31.750Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw {"name":"operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw"}
+[debug] [2026-01-06T08:59:32.753Z] [Create iOS app Poller] Retrying task index 0
+[debug] [2026-01-06T08:59:32.754Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:32.754Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:32.754Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw [none]
+[debug] [2026-01-06T08:59:33.342Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw 200
+[debug] [2026-01-06T08:59:33.343Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw {"name":"operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw"}
+[debug] [2026-01-06T08:59:35.344Z] [Create iOS app Poller] Retrying task index 0
+[debug] [2026-01-06T08:59:35.345Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:35.346Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:35.350Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw [none]
+[debug] [2026-01-06T08:59:35.940Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw 200
+[debug] [2026-01-06T08:59:35.941Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw {"name":"operations/workflows/NDhmZTUxYWEtYzM4NC00OWEwLWI0ZWQtNTEzN2ZkY2UyNWQw","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.IosApp","name":"projects/book-bridge-app-1704518400/iosApps/1:133663465316:ios:99caa91d0d6d79af106471","appId":"1:133663465316:ios:99caa91d0d6d79af106471","projectId":"book-bridge-app-1704518400","bundleId":"com.bookbridge.app","apiKeyId":"3a579778-27b6-4d48-a436-16cfab8a9751","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z","etag":"1_48da189a-de53-4ca8-96bd-fcebc0dfdde1"}}
+[debug] [2026-01-06T08:59:56.761Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:59:56.762Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:59:56.762Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:56.762Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:56.762Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:59:58.274Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:59:58.275Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T08:59:58.282Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T08:59:58.282Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T08:59:58.284Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:58.286Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T08:59:58.286Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T08:59:59.094Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T08:59:59.094Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[info] 
+=== Firestore Setup Actuation
+[info] ✔  Wrote firestore.rules 
+[info] ✔  Wrote firestore.indexes.json 
+[info] ✔  Wrote configuration info to firebase.json 
+[info] ✔  Wrote project information to .firebaserc 
+[debug] [2026-01-06T09:00:07.485Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T09:00:07.485Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T09:00:07.486Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:07.486Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:07.486Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T09:00:08.143Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T09:00:08.143Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T09:00:08.155Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T09:00:08.156Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T09:00:08.157Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:08.158Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:08.158Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T09:00:08.944Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T09:00:08.944Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T09:00:08.956Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:08.956Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:08.958Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/androidApps pageSize=100
+[debug] [2026-01-06T09:00:10.179Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/androidApps 200
+[debug] [2026-01-06T09:00:10.181Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/androidApps {"apps":[{"name":"projects/book-bridge-app-1704518400/androidApps/1:133663465316:android:6a66ea3596858a07106471","appId":"1:133663465316:android:6a66ea3596858a07106471","projectId":"book-bridge-app-1704518400","packageName":"com.example.book_bridge_app","apiKeyId":"93620ae8-8ac0-4ea9-ab2d-a1f6c93208d5","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z","etag":"1_0e1d1495-79e8-46ed-b39e-6c8dff53db5e"}]}
+[debug] [2026-01-06T09:00:10.183Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:10.184Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:00:10.184Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/androidApps/1:133663465316:android:6a66ea3596858a07106471/config [none]
+[debug] [2026-01-06T09:00:11.989Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/androidApps/1:133663465316:android:6a66ea3596858a07106471/config 200
+[debug] [2026-01-06T09:00:11.990Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/androidApps/1:133663465316:android:6a66ea3596858a07106471/config {"configFilename":"google-services.json","configFileContents":"ewogICJwcm9qZWN0X2luZm8iOiB7CiAgICAicHJvamVjdF9udW1iZXIiOiAiMTMzNjYzNDY1MzE2IiwKICAgICJwcm9qZWN0X2lkIjogImJvb2stYnJpZGdlLWFwcC0xNzA0NTE4NDAwIiwKICAgICJzdG9yYWdlX2J1Y2tldCI6ICJib29rLWJyaWRnZS1hcHAtMTcwNDUxODQwMC5maXJlYmFzZXN0b3JhZ2UuYXBwIgogIH0sCiAgImNsaWVudCI6IFsKICAgIHsKICAgICAgImNsaWVudF9pbmZvIjogewogICAgICAgICJtb2JpbGVzZGtfYXBwX2lkIjogIjE6MTMzNjYzNDY1MzE2OmFuZHJvaWQ6NmE2NmVhMzU5Njg1OGEwNzEwNjQ3MSIsCiAgICAgICAgImFuZHJvaWRfY2xpZW50X2luZm8iOiB7CiAgICAgICAgICAicGFja2FnZV9uYW1lIjogImNvbS5leGFtcGxlLmJvb2tfYnJpZGdlX2FwcCIKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJvYXV0aF9jbGllbnQiOiBbXSwKICAgICAgImFwaV9rZXkiOiBbCiAgICAgICAgewogICAgICAgICAgImN1cnJlbnRfa2V5IjogIkFJemFTeUJjbXNUekZXckVDV1daRzN4RjNub2d5a1liR1BBN0pSayIKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJzZXJ2aWNlcyI6IHsKICAgICAgICAiYXBwaW52aXRlX3NlcnZpY2UiOiB7CiAgICAgICAgICAib3RoZXJfcGxhdGZvcm1fb2F1dGhfY2xpZW50IjogW10KICAgICAgICB9CiAgICAgIH0KICAgIH0KICBdLAogICJjb25maWd1cmF0aW9uX3ZlcnNpb24iOiAiMSIKfQ=="}
+[debug] [2026-01-06T09:06:41.124Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T09:06:41.124Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T09:06:41.124Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:41.124Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:41.124Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T09:06:41.936Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T09:06:41.936Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T09:06:41.939Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-06T09:06:41.940Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-06T09:06:41.940Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:41.940Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:41.940Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-06T09:06:42.372Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-06T09:06:42.372Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-06T09:06:42.374Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:42.375Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:42.376Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps pageSize=100
+[debug] [2026-01-06T09:06:43.221Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps 200
+[debug] [2026-01-06T09:06:43.222Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/book-bridge-app-1704518400/iosApps {"apps":[{"name":"projects/book-bridge-app-1704518400/iosApps/1:133663465316:ios:99caa91d0d6d79af106471","appId":"1:133663465316:ios:99caa91d0d6d79af106471","projectId":"book-bridge-app-1704518400","bundleId":"com.bookbridge.app","apiKeyId":"3a579778-27b6-4d48-a436-16cfab8a9751","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z","etag":"1_48da189a-de53-4ca8-96bd-fcebc0dfdde1"}]}
+[debug] [2026-01-06T09:06:43.222Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:43.222Z] Checked if tokens are valid: true, expires at: 1767691738262
+[debug] [2026-01-06T09:06:43.222Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/iosApps/1:133663465316:ios:99caa91d0d6d79af106471/config [none]
+[debug] [2026-01-06T09:06:44.163Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/iosApps/1:133663465316:ios:99caa91d0d6d79af106471/config 200
+[debug] [2026-01-06T09:06:44.163Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/iosApps/1:133663465316:ios:99caa91d0d6d79af106471/config {"configFilename":"GoogleService-Info.plist","configFileContents":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+QVBJX0tFWTwva2V5PgoJPHN0cmluZz5BSXphU3lBYTNucVI5VnBFZFY1aW16dnVJVWc3STJSVDlKdkxNdVU8L3N0cmluZz4KCTxrZXk+R0NNX1NFTkRFUl9JRDwva2V5PgoJPHN0cmluZz4xMzM2NjM0NjUzMTY8L3N0cmluZz4KCTxrZXk+UExJU1RfVkVSU0lPTjwva2V5PgoJPHN0cmluZz4xPC9zdHJpbmc+Cgk8a2V5PkJVTkRMRV9JRDwva2V5PgoJPHN0cmluZz5jb20uYm9va2JyaWRnZS5hcHA8L3N0cmluZz4KCTxrZXk+UFJPSkVDVF9JRDwva2V5PgoJPHN0cmluZz5ib29rLWJyaWRnZS1hcHAtMTcwNDUxODQwMDwvc3RyaW5nPgoJPGtleT5TVE9SQUdFX0JVQ0tFVDwva2V5PgoJPHN0cmluZz5ib29rLWJyaWRnZS1hcHAtMTcwNDUxODQwMC5maXJlYmFzZXN0b3JhZ2UuYXBwPC9zdHJpbmc+Cgk8a2V5PklTX0FEU19FTkFCTEVEPC9rZXk+Cgk8ZmFsc2U+PC9mYWxzZT4KCTxrZXk+SVNfQU5BTFlUSUNTX0VOQUJMRUQ8L2tleT4KCTxmYWxzZT48L2ZhbHNlPgoJPGtleT5JU19BUFBJTlZJVEVfRU5BQkxFRDwva2V5PgoJPHRydWU+PC90cnVlPgoJPGtleT5JU19HQ01fRU5BQkxFRDwva2V5PgoJPHRydWU+PC90cnVlPgoJPGtleT5JU19TSUdOSU5fRU5BQkxFRDwva2V5PgoJPHRydWU+PC90cnVlPgoJPGtleT5HT09HTEVfQVBQX0lEPC9rZXk+Cgk8c3RyaW5nPjE6MTMzNjYzNDY1MzE2Omlvczo5OWNhYTkxZDBkNmQ3OWFmMTA2NDcxPC9zdHJpbmc+CjwvZGljdD4KPC9wbGlzdD4="}

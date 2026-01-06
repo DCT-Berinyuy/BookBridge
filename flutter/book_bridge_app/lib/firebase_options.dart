@@ -36,22 +36,20 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCv63ktbWbHJvc67YgkMWTpoWjNQ9P04l4',
-    appId: '1:123456789012:android:1234567890abcdef012345',
-    messagingSenderId: '123456789012',
-    projectId: 'book-bridge-12345',
-    storageBucket: 'book-bridge-12345.appspot.com',
+    apiKey: 'AIzaSyBcmsTzFWrECWWZG3xF3nogykYbGPA7JRk',
+    appId: '1:133663465316:android:6a66ea3596858a07106471',
+    messagingSenderId: '133663465316',
+    projectId: 'book-bridge-app-1704518400',
+    storageBucket: 'book-bridge-app-1704518400.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCv63ktbWbHJvc67YgkMWTpoWjNQ9P04l4',
-    appId: '1:123456789012:ios:1234567890abcdef012345',
-    messagingSenderId: '123456789012',
-    projectId: 'book-bridge-12345',
-    storageBucket: 'book-bridge-12345.appspot.com',
-    iosClientId:
-        '123456789012-abc123def456ghi789jkl012mno345pqr.apps.googleusercontent.com',
-    iosBundleId: 'com.example.bookBridge',
+    apiKey: 'AIzaSyAa3nqR9VpEdV5imzvuIUg7I2RT9JvLMuU',
+    appId: '1:133663465316:ios:99caa91d0d6d79af106471',
+    messagingSenderId: '133663465316',
+    projectId: 'book-bridge-app-1704518400',
+    storageBucket: 'book-bridge-app-1704518400.firebasestorage.app',
+    iosBundleId: 'com.bookbridge.app',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
