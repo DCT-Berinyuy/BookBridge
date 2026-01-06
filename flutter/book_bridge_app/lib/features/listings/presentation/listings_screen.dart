@@ -12,15 +12,11 @@ class ListingsScreen extends ConsumerWidget {
     final listingsAsyncValue = ref.watch(listingsStreamProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Book Listings'),
-      ),
+      appBar: AppBar(title: const Text('Book Listings')),
       body: listingsAsyncValue.when(
         data: (listings) {
           if (listings.isEmpty) {
-            return const Center(
-              child: Text('No listings found.'),
-            );
+            return const Center(child: Text('No listings found.'));
           }
           return ListView.builder(
             itemCount: listings.length,
@@ -56,12 +52,8 @@ class ListingsScreen extends ConsumerWidget {
             },
           );
         },
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
-        error: (error, stack) => Center(
-          child: Text('Error: $error'),
-        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, stack) => Center(child: Text('Error: $error')),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

@@ -53,8 +53,10 @@ void main() {
       ).thenAnswer((_) async => mockGoogleSignInAuthentication);
       when(
         mockGoogleSignInAuthentication.accessToken,
-      ).thenReturn('testAccessToken');
-      when(mockGoogleSignInAuthentication.idToken).thenReturn('testIdToken');
+      ).thenAnswer((_) => 'testAccessToken');
+      when(
+        mockGoogleSignInAuthentication.idToken,
+      ).thenAnswer((_) => 'testIdToken');
       when(
         mockFirebaseAuth.signInWithCredential(any),
       ).thenAnswer((_) async => mockUserCredential);

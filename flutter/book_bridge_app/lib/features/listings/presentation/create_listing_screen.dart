@@ -22,9 +22,7 @@ class _CreateListingScreenState extends ConsumerState<CreateListingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Create New Listing'),
-      ),
+      appBar: AppBar(title: const Text('Create New Listing')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -64,10 +62,12 @@ class _CreateListingScreenState extends ConsumerState<CreateListingScreen> {
                   initialValue: _condition,
                   decoration: const InputDecoration(labelText: 'Condition'),
                   items: Condition.values
-                      .map((cond) => DropdownMenuItem(
-                            value: cond,
-                            child: Text(cond.name),
-                          ))
+                      .map(
+                        (cond) => DropdownMenuItem(
+                          value: cond,
+                          child: Text(cond.name),
+                        ),
+                      )
                       .toList(),
                   onChanged: (value) {
                     setState(() {
@@ -84,16 +84,21 @@ class _CreateListingScreenState extends ConsumerState<CreateListingScreen> {
                       const uuid = Uuid();
                       final newListing = Listing(
                         listingId: uuid.v4(),
-                        bookId: 'placeholder_book_id', // TODO: Implement book selection
-                        sellerId: 'placeholder_seller_id', // TODO: Get current user ID
+                        bookId:
+                            'placeholder_book_id', // TODO: Implement book selection
+                        sellerId:
+                            'placeholder_seller_id', // TODO: Get current user ID
                         price: _price,
                         condition: _condition,
-                        localityId: 'placeholder_locality_id', // TODO: Get current locality
+                        localityId:
+                            'placeholder_locality_id', // TODO: Get current locality
                         status: Status.available,
                         createdAt: DateTime.now(),
                       );
 
-                      await ref.read(listingsProvider.notifier).createListing(newListing);
+                      await ref
+                          .read(listingsProvider.notifier)
+                          .createListing(newListing);
                       if (context.mounted) {
                         context.pop();
                       }
