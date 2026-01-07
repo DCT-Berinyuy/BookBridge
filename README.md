@@ -82,7 +82,12 @@ lib/
 
 4. Configure Firebase for your platform (Android, iOS, Web) following the official Firebase documentation
 
-5. Run the application:
+5. To set up custom app icons:
+   - Place your App_Icon.png (at least 1024x1024 pixels) in the project root
+   - Add flutter_launcher_icons to dev_dependencies in pubspec.yaml
+   - Run `dart run flutter_launcher_icons:main` to generate the icons
+
+6. Run the application:
    ```bash
    flutter run
    ```
