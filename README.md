@@ -107,6 +107,10 @@ Contributions are welcome! Please read the [ARCHITECTURE.md](ARCHITECTURE.md) fi
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🚀 Releases
+
+Check out the [releases page](https://github.com/DCT-Berinyuy/BookBridge/releases) to download the latest APK for Android devices.
+
 ## 🎯 Project Goals
 
 - Enable students to buy and sell used books nearby

@@ -733,3 +733,93 @@
 [info] ✔  Wrote firestore.indexes.json 
 [info] ✔  Wrote configuration info to firebase.json 
 [info] ✔  Wrote project information to .firebaserc 
+[debug] [2026-01-07T08:42:44.406Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T08:42:44.410Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-07T08:42:44.411Z] Checked if tokens are valid: false, expires at: 1767761367740
+[debug] [2026-01-07T08:42:44.412Z] Checked if tokens are valid: false, expires at: 1767761367740
+[debug] [2026-01-07T08:42:44.413Z] > refreshing access token with scopes: []
+[debug] [2026-01-07T08:42:44.419Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-07T08:42:44.419Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T08:42:44.429Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T08:42:44.430Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-07T08:42:44.430Z] Checked if tokens are valid: false, expires at: 1767761367740
+[debug] [2026-01-07T08:42:44.430Z] Checked if tokens are valid: false, expires at: 1767761367740
+[debug] [2026-01-07T08:42:44.430Z] > refreshing access token with scopes: []
+[debug] [2026-01-07T08:42:44.431Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-07T08:42:44.431Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T08:42:45.000Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-07T08:42:45.000Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T08:42:45.030Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-07T08:42:45.231Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-07T08:42:45.232Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T08:42:45.246Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-07T08:42:46.234Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-07T08:42:46.235Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-07T08:42:46.252Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.252Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.253Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.253Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.282Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.282Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.284Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.284Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.285Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-07T08:42:46.285Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:46.288Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-07T08:42:46.288Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:46.290Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-07T08:42:46.290Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:46.292Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com [none]
+[debug] [2026-01-07T08:42:46.292Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:46.638Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-07T08:42:46.639Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-07T08:42:46.640Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.640Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.641Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.641Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.656Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.657Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.657Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.657Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:46.657Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-07T08:42:46.658Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:46.661Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-07T08:42:46.661Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:46.664Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-07T08:42:46.665Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:46.667Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com [none]
+[debug] [2026-01-07T08:42:46.667Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com x-goog-quota-user=projects/book-bridge-app-1704518400
+[debug] [2026-01-07T08:42:47.850Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-07T08:42:47.851Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-07T08:42:47.892Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com 403
+[debug] [2026-01-07T08:42:47.892Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com [omitted]
+[debug] [2026-01-07T08:42:47.928Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-07T08:42:47.932Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-07T08:42:47.945Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-07T08:42:47.950Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-07T08:42:47.976Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-07T08:42:47.976Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-07T08:42:47.991Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com 403
+[debug] [2026-01-07T08:42:47.991Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseio.com [omitted]
+[debug] [2026-01-07T08:42:48.034Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-07T08:42:48.035Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-07T08:42:49.422Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T08:42:49.423Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-07T08:42:49.427Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:49.428Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:49.429Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-07T08:42:49.924Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-07T08:42:49.925Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-07T08:42:49.934Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T08:42:49.935Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-07T08:42:50.120Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T08:42:50.121Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-07T08:42:50.121Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:50.121Z] Checked if tokens are valid: true, expires at: 1767778964232
+[debug] [2026-01-07T08:42:50.121Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo [none]
+[debug] [2026-01-07T08:42:50.593Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo 200
+[debug] [2026-01-07T08:42:50.593Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/book-bridge-app-1704518400/billingInfo {"name":"projects/book-bridge-app-1704518400/billingInfo","projectId":"book-bridge-app-1704518400","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-07T08:42:50.602Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T08:42:50.602Z] > authorizing via signed-in user (verlaberinyuy8@gmail.com)
+[debug] [2026-01-07T08:42:52.671Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-07T08:42:52.671Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/book-bridge-app-1704518400/services/firebasedataconnect.googleapis.com [omitted]
