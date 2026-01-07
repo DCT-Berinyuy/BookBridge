@@ -10,7 +10,7 @@ BookBridge is an online classified marketplace that enables students to discover
 
 ## 📷 Screenshots
 
-![BookBridge Screenshot](Screenshot_resized.png)
+![BookBridge Screenshot](https://raw.githubusercontent.com/DCT-Berinyuy/BookBridge/main/Screenshot_resized.png)
 
 ## ✨ Features
 
