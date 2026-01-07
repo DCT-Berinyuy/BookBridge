@@ -7,6 +7,10 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp.router(routerConfig: appRouter, title: 'BookBridge');
+    return MaterialApp.router(
+      routerConfig: appRouter,
+      title: 'BookBridge',
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
