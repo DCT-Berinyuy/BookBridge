@@ -61,6 +61,9 @@ Welcome to the first official release of BookBridge! This is an online classifie
 - iOS (IPA - coming in future releases)
 - Web (coming in future releases)
 
+## 📷 Screenshots
+![BookBridge Screenshot](Screenshot_resized.png)
+
 ## 🐞 Known Issues
 - Google Sign-In may require additional environment configuration
 - Some UI elements may need fine-tuning for different screen sizes
