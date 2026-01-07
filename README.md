@@ -2,9 +2,15 @@
 
 A Flutter application for students to discover, buy, and sell used physical books within their locality.
 
+![BookBridge App Icon](App_Icon.png)
+
 ## 📋 Project Overview
 
 BookBridge is an online classified marketplace that enables students to discover, buy, and sell used physical books within their locality. The app follows a feature-driven architecture with clean separation of concerns and uses Firebase as the backend for authentication and data storage.
+
+## 📷 Screenshots
+
+![BookBridge Screenshot](Screenshot.png)
 
 ## ✨ Features
 
