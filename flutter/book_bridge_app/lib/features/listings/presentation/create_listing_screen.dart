@@ -5,6 +5,8 @@ import 'package:book_bridge_app/features/listings/domain/listing_model.dart';
 import 'package:book_bridge_app/features/listings/state/listing_provider.dart';
 import 'package:uuid/uuid.dart'; // For generating unique IDs
 
+import 'package:book_bridge_app/features/auth/state/auth_provider.dart';
+
 class CreateListingScreen extends ConsumerStatefulWidget {
   const CreateListingScreen({super.key});
 
@@ -81,13 +83,21 @@ class _CreateListingScreenState extends ConsumerState<CreateListingScreen> {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
 
+                      final currentUser = ref
+                          .read(authStateChangesProvider)
+                          .asData
+                          ?.value;
+                      if (currentUser == null) {
+                        // Handle the case where the user is not logged in
+                        return;
+                      }
+
                       const uuid = Uuid();
                       final newListing = Listing(
                         listingId: uuid.v4(),
                         bookId:
                             'placeholder_book_id', // TODO: Implement book selection
-                        sellerId:
-                            'placeholder_seller_id', // TODO: Get current user ID
+                        sellerId: currentUser.uid,
                         price: _price,
                         condition: _condition,
                         localityId:

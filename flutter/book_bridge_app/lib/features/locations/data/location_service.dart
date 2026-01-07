@@ -11,4 +11,12 @@ class LocationService {
       return snapshot.docs.map((doc) => Location.fromJson(doc.data())).toList();
     });
   }
+
+  Future<Location?> getLocation(String localityId) async {
+    final doc = await _firestore.collection('locations').doc(localityId).get();
+    if (doc.exists) {
+      return Location.fromJson(doc.data()!);
+    }
+    return null;
+  }
 }

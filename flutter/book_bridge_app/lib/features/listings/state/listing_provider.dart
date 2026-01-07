@@ -21,6 +21,13 @@ final listingsProvider = StateNotifierProvider<ListingsNotifier, List<Listing>>(
   },
 );
 
+final listingsBySellerProvider = StreamProvider.family<List<Listing>, String>((
+  ref,
+  sellerId,
+) {
+  return ref.watch(listingServiceProvider).getListingsBySeller(sellerId);
+});
+
 class ListingsNotifier extends StateNotifier<List<Listing>> {
   final ListingService _listingService;
 

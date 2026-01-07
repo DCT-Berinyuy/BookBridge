@@ -1,38 +1,18 @@
-rules_version = '2';
+rules_version='2'
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Global: All access requires authentication
-    // This is implicitly handled by specific match rules requiring `request.auth != null`
-
-    // Users: Users may read/write only their own document
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-
-    // Books: Read-only for users, write access restricted to system/admin
-    // For now, we'll make them read-only for authenticated users.
-    // System/admin write access would typically be handled via a separate mechanism (e.g., Firebase Admin SDK)
-    match /books/{bookId} {
-      allow read: if request.auth != null;
-      allow write: if false; // Deny all direct writes from client apps
-    }
-
-    // Listings:
-    // Create only if sellerId == auth.uid
-    // Update only by seller
-    // Sold listings are immutable
-    // Deletion is forbidden in v1
-    match /listings/{listingId} {
-      allow create: if request.auth != null && request.resource.data.sellerId == request.auth.uid;
-      allow update: if request.auth != null && resource.data.sellerId == request.auth.uid && resource.data.status != 'sold';
-      allow read: if request.auth != null; // All authenticated users can read listings
-      allow delete: if false; // Deletion is forbidden
-    }
-
-    // Locations: Read-only
-    match /locations/{localityId} {
-      allow read: if request.auth != null;
-      allow write: if false; // Deny all writes
+    match /{document=**} {
+      // This rule allows anyone with your database reference to view, edit,
+      // and delete all data in your database. It is useful for getting
+      // started, but it is configured to expire after 30 days because it
+      // leaves your app open to attackers. At that time, all client
+      // requests to your database will be denied.
+      //
+      // Make sure to write security rules for your app before that time, or
+      // else all client requests to your database will be denied until you
+      // update your rules.
+      allow read, write: if request.time < timestamp.date(2026, 2, 5);
     }
   }
 }

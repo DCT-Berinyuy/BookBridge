@@ -17,4 +17,10 @@ class BookService {
     }
     return null;
   }
+
+  Stream<List<Book>> getBooks() {
+    return _firestore.collection('books').snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) => Book.fromJson(doc.data())).toList();
+    });
+  }
 }

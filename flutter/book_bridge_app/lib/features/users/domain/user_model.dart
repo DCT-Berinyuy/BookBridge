@@ -2,38 +2,16 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'user_model.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class User {
-  final String userId;
-  final String name;
-  final String role;
-  final String localityId;
-  final Contact contact;
-  final DateTime createdAt;
-
-  User({
-    required this.userId,
-    required this.name,
-    this.role = 'student',
-    required this.localityId,
-    required this.contact,
-    required this.createdAt,
-  });
-
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-
-  Map<String, dynamic> toJson() => _$UserToJson(this);
-}
-
 @JsonSerializable()
-class Contact {
-  final String? phone;
-  final String? whatsapp;
+class UserModel {
+  final String uid;
+  final String? localityId;
+  final String? whatsappNumber;
 
-  Contact({this.phone, this.whatsapp});
+  UserModel({required this.uid, this.localityId, this.whatsappNumber});
 
-  factory Contact.fromJson(Map<String, dynamic> json) =>
-      _$ContactFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ContactToJson(this);
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }

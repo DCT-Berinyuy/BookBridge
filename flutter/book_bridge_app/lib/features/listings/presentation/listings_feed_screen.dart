@@ -1,3 +1,5 @@
+import 'package:book_bridge_app/features/books/state/book_provider.dart';
+import 'package:book_bridge_app/features/locations/state/location_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -109,24 +111,18 @@ class ListingsFeedScreen extends ConsumerWidget {
             ),
           ),
           // Listings list
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return listings.when(
-                  data: (listingList) {
-                    if (index >= listingList.length) {
-                      return const SizedBox.shrink();
-                    }
-                    final listing = listingList[index];
-                    return _ListingCard(listing: listing);
-                  },
-                  loading: () => const ListTile(title: Text('Loading...')),
-                  error: (error, stack) =>
-                      ListTile(title: Text('Error: $error')),
-                );
-              },
-              childCount: 10, // Placeholder count
+          listings.when(
+            data: (listingList) => SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final listing = listingList[index];
+                return _ListingCard(listing: listing);
+              }, childCount: listingList.length),
             ),
+            loading: () => const SliverToBoxAdapter(
+              child: Center(child: CircularProgressIndicator()),
+            ),
+            error: (error, stack) =>
+                SliverToBoxAdapter(child: Center(child: Text('Error: $error'))),
           ),
         ],
       ),
@@ -134,13 +130,16 @@ class ListingsFeedScreen extends ConsumerWidget {
   }
 }
 
-class _ListingCard extends StatelessWidget {
+class _ListingCard extends ConsumerWidget {
   final Listing listing;
 
   const _ListingCard({required this.listing});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final book = ref.watch(bookProvider(listing.bookId));
+    final location = ref.watch(locationProvider(listing.localityId));
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: InkWell(
@@ -171,12 +170,16 @@ class _ListingCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Text(
-                            listing.bookId, // This should be the book title
-                            style: Theme.of(context).textTheme.titleMedium
-                                ?.copyWith(fontWeight: FontWeight.bold),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                          child: book.when(
+                            data: (bookData) => Text(
+                              bookData?.title ?? 'Book Title Not Found',
+                              style: Theme.of(context).textTheme.titleMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            loading: () => const Text('Loading...'),
+                            error: (error, stack) => const Text('Error'),
                           ),
                         ),
                         IconButton(
@@ -186,11 +189,15 @@ class _ListingCard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 4),
-                    Text(
-                      'Author Name', // This should come from the book model
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
+                    book.when(
+                      data: (bookData) => Text(
+                        bookData?.author ?? 'Author Not Found',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                      loading: () => const Text('Loading...'),
+                      error: (error, stack) => const Text('Error'),
                     ),
                     const SizedBox(height: 8),
                     Row(
@@ -234,10 +241,14 @@ class _ListingCard extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                         ),
-                        Text(
-                          'North Campus',
-                          style: Theme.of(context).textTheme.bodySmall
-                              ?.copyWith(color: Colors.grey[600]),
+                        location.when(
+                          data: (locationData) => Text(
+                            locationData?.name ?? 'Location Not Found',
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(color: Colors.grey[600]),
+                          ),
+                          loading: () => const Text('Loading...'),
+                          error: (error, stack) => const Text('Error'),
                         ),
                       ],
                     ),

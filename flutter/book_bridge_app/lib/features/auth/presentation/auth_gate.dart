@@ -41,7 +41,7 @@ class HomeScreen extends ConsumerWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'BookBridge',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -57,7 +57,7 @@ class HomeScreen extends ConsumerWidget {
                         Row(
                           children: [
                             const Icon(Icons.location_on, color: Colors.green),
-                            const Text('Near University'),
+                            const Text('Near School'),
                             const Icon(Icons.expand_more),
                           ],
                         ),

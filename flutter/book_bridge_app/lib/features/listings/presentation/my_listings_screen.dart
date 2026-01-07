@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MyListingsScreen extends ConsumerWidget {
+import 'package:book_bridge_app/features/auth/state/auth_provider.dart';
+import 'package:book_bridge_app/features/books/state/book_provider.dart';
+import 'package:book_bridge_app/features/listings/domain/listing_model.dart';
+import 'package:book_bridge_app/features/listings/state/listing_provider.dart';
+
+class MyListingsScreen extends ConsumerStatefulWidget {
   const MyListingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MyListingsScreen> createState() => _MyListingsScreenState();
+}
+
+class _MyListingsScreenState extends ConsumerState<MyListingsScreen> {
+  bool _showActive = true;
+
+  @override
+  Widget build(BuildContext context) {
+    final currentUser = ref.watch(authStateChangesProvider).asData?.value;
+
+    if (currentUser == null) {
+      return const Center(child: Text('Please sign in to see your listings.'));
+    }
+
+    final listings = ref.watch(listingsBySellerProvider(currentUser.uid));
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -33,15 +53,23 @@ class MyListingsScreen extends ConsumerWidget {
                 Expanded(
                   child: _TabButton(
                     label: 'Active',
-                    isActive: true,
-                    onTap: () {},
+                    isActive: _showActive,
+                    onTap: () {
+                      setState(() {
+                        _showActive = true;
+                      });
+                    },
                   ),
                 ),
                 Expanded(
                   child: _TabButton(
                     label: 'Sold/Archived',
-                    isActive: false,
-                    onTap: () {},
+                    isActive: !_showActive,
+                    onTap: () {
+                      setState(() {
+                        _showActive = false;
+                      });
+                    },
                   ),
                 ),
               ],
@@ -49,40 +77,25 @@ class MyListingsScreen extends ConsumerWidget {
           ),
           // Listings list
           Expanded(
-            child: ListView(
-              children: [
-                _ListingCard(
-                  title: 'Calculus: Early Transcendentals',
-                  author: 'James Stewart',
-                  price: 45.00,
-                  condition: 'Good',
-                  status: 'Available',
-                  daysPosted: 2,
-                  imageUrl:
-                      'https://lh3.googleusercontent.com/aida-public/AB6AXuBM55xxsj-xKcWoJoUVTnp7zuMih_FEgLET6g0HHz1lXhyahpxt4L5fHJu8N6b3G8Irv_i5nOyFUxCTTNO69Ir524amBDAUDy65JICGNs67TaRgK3qrVudssNXODgsQcGRI8VQE0Cwoz2cRwVKvPSAhnhHpZnQoRshCm35AD6KMEf2WJ1PGpXtKfPz17yEyBz84OIMmyND5-WjEl4kmhI34hIjAJACQOX8ZBG8yEx0WZAOxNC62jrAbapl2NYKN_Odxm66vfQ3mZPg',
-                ),
-                _ListingCard(
-                  title: 'Introduction to Psychology',
-                  author: 'Dr. Charles Stangor',
-                  price: 30.00,
-                  condition: 'Like New',
-                  status: 'Reserved',
-                  daysPosted: 5,
-                  offers: 1,
-                  imageUrl:
-                      'https://lh3.googleusercontent.com/aida-public/AB6AXuDRhxGfak-jekhY-dt2EnuzGeOmH-igySkRg0UmKDHde2Dy1VBP_HbZhu_Qio12bBzMD8S-efHcQLwNFh1WB-OJoQDFpe2hS64HGHqTMxb9gYboxIDxM_tpO7CLWCTuHBLteq3Fxm672LFPMpvr6fscXPkrbbwegw40aaSYbEEkAZyKr7AuufUj2En4a2Fyq5hnJS4uplmNwR-1-iOjjyI8NLUnMwwWHW5JVzgJZdIM3ojZTE0pFKmoZsdWGvGMA1KfScgZqEzPSMY',
-                ),
-                _ListingCard(
-                  title: 'Organic Chemistry',
-                  author: 'Paula Yurkanis Bruice',
-                  price: 25.00,
-                  condition: 'Fair',
-                  status: 'Sold',
-                  daysPosted: 10,
-                  imageUrl:
-                      'https://lh3.googleusercontent.com/aida-public/AB6AXuA2yLaKY8ALYDYJSfEF4scQN35HEaqyeEO268EYTj_olEHWE-bu3x4RRMf9xhTS7TtFdUAsJWfcverqcEXD-ns1BQvVRpOutgM_6k5vsC9AdN2xNO2rk90KJRBK3a6OWrCuQHMtrLgkIZOt-p29CLUvUEGHNm9hCrr6rqQfFloCHjXoI9cFdB3CpclF7AqpsmJ2gLOu_z2wFOuuULIGT4Bqnv4IfkDxivPe59VT1fmB66sp_jV1SmeFN5AuMymSUcFG9Aj1s8Pw-D4',
-                ),
-              ],
+            child: listings.when(
+              data: (listingList) {
+                final filteredList = listingList.where((listing) {
+                  final isActive =
+                      listing.status == Status.available ||
+                      listing.status == Status.reserved;
+                  return _showActive ? isActive : !isActive;
+                }).toList();
+
+                return ListView.builder(
+                  itemCount: filteredList.length,
+                  itemBuilder: (context, index) {
+                    final listing = filteredList[index];
+                    return _ListingCard(listing: listing);
+                  },
+                );
+              },
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (error, stack) => Center(child: Text('Error: $error')),
             ),
           ),
         ],
@@ -133,30 +146,15 @@ class _TabButton extends StatelessWidget {
   }
 }
 
-class _ListingCard extends StatelessWidget {
-  final String title;
-  final String author;
-  final double price;
-  final String condition;
-  final String status;
-  final int daysPosted;
-  final int? offers;
-  final String imageUrl;
+class _ListingCard extends ConsumerWidget {
+  final Listing listing;
 
-  const _ListingCard({
-    required this.title,
-    required this.author,
-    required this.price,
-    required this.condition,
-    required this.status,
-    required this.daysPosted,
-    this.offers,
-    required this.imageUrl,
-  });
+  const _ListingCard({required this.listing});
 
   @override
-  Widget build(BuildContext context) {
-    bool isSold = status.toLowerCase() == 'sold';
+  Widget build(BuildContext context, WidgetRef ref) {
+    final book = ref.watch(bookProvider(listing.bookId));
+    final isSold = listing.status == Status.sold;
 
     return Opacity(
       opacity: isSold ? 0.9 : 1.0,
@@ -180,30 +178,7 @@ class _ListingCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   color: Colors.grey[300],
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Container(
-                        color: Colors.grey[300],
-                        child: const Center(child: CircularProgressIndicator()),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[300],
-                        child: const Icon(
-                          Icons.error,
-                          size: 30,
-                          color: Colors.grey,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                child: const Icon(Icons.book),
               ),
               const SizedBox(width: 12),
               // Book details
@@ -226,26 +201,28 @@ class _ListingCard extends StatelessWidget {
                                       vertical: 4,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: status == 'Available'
+                                      color: listing.status == Status.available
                                           ? Colors.green[100]
-                                          : status == 'Reserved'
+                                          : listing.status == Status.reserved
                                           ? Colors.orange[100]
                                           : Colors.grey[300],
                                       borderRadius: BorderRadius.circular(12),
                                       border: Border.all(
-                                        color: status == 'Available'
+                                        color:
+                                            listing.status == Status.available
                                             ? Colors.green[300]!
-                                            : status == 'Reserved'
+                                            : listing.status == Status.reserved
                                             ? Colors.orange[300]!
                                             : Colors.grey[400]!,
                                       ),
                                     ),
                                     child: Text(
-                                      status,
+                                      listing.status.name,
                                       style: TextStyle(
-                                        color: status == 'Available'
+                                        color:
+                                            listing.status == Status.available
                                             ? Colors.green[700]
-                                            : status == 'Reserved'
+                                            : listing.status == Status.reserved
                                             ? Colors.orange[700]
                                             : Colors.grey[700],
                                         fontSize: 12,
@@ -255,19 +232,23 @@ class _ListingCard extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 8),
                                   Text(
-                                    'Posted ${daysPosted}d ago',
+                                    'Posted ${DateTime.now().difference(listing.createdAt).inDays}d ago',
                                     style: Theme.of(context).textTheme.bodySmall
                                         ?.copyWith(color: Colors.grey[600]),
                                   ),
                                 ],
                               ),
                               const SizedBox(height: 4),
-                              Text(
-                                title,
-                                style: Theme.of(context).textTheme.titleMedium
-                                    ?.copyWith(fontWeight: FontWeight.bold),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
+                              book.when(
+                                data: (bookData) => Text(
+                                  bookData?.title ?? 'Book Title Not Found',
+                                  style: Theme.of(context).textTheme.titleMedium
+                                      ?.copyWith(fontWeight: FontWeight.bold),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                loading: () => const Text('Loading...'),
+                                error: (error, stack) => const Text('Error'),
                               ),
                             ],
                           ),
@@ -280,7 +261,7 @@ class _ListingCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '\$${price.toStringAsFixed(2)} • ${condition} Condition',
+                      '\$${listing.price.toStringAsFixed(2)} • ${listing.condition.name} Condition',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.grey[700],
                         fontWeight: FontWeight.w500,
@@ -288,7 +269,7 @@ class _ListingCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     // Action buttons
-                    if (status == 'Available')
+                    if (listing.status == Status.available)
                       Row(
                         children: [
                           Expanded(
@@ -328,7 +309,7 @@ class _ListingCard extends StatelessWidget {
                           ),
                         ],
                       )
-                    else if (status == 'Reserved')
+                    else if (listing.status == Status.reserved)
                       Row(
                         children: [
                           Expanded(
@@ -350,7 +331,7 @@ class _ListingCard extends StatelessWidget {
                           ),
                         ],
                       )
-                    else if (status == 'Sold')
+                    else if (listing.status == Status.sold)
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(

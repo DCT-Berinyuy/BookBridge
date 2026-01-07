@@ -6,19 +6,19 @@ class UserService {
 
   UserService(this._firestore);
 
-  Future<void> createUser(User user) async {
-    await _firestore.collection('users').doc(user.userId).set(user.toJson());
+  Future<void> createUser(UserModel user) async {
+    await _firestore.collection('users').doc(user.uid).set(user.toJson());
   }
 
-  Future<User?> getUser(String userId) async {
-    final doc = await _firestore.collection('users').doc(userId).get();
+  Future<UserModel?> getUser(String uid) async {
+    final doc = await _firestore.collection('users').doc(uid).get();
     if (doc.exists) {
-      return User.fromJson(doc.data()!);
+      return UserModel.fromJson(doc.data()!);
     }
     return null;
   }
 
-  Future<void> updateUser(User user) async {
-    await _firestore.collection('users').doc(user.userId).update(user.toJson());
+  Future<void> updateUser(UserModel user) async {
+    await _firestore.collection('users').doc(user.uid).update(user.toJson());
   }
 }

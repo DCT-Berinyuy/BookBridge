@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        generate_for:
+          - lib/**.dart
+      mockito|mockBuilder:
+        generate_for:
+          - test/**.dart

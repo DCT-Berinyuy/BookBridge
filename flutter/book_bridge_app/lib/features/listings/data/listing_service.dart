@@ -25,4 +25,16 @@ class ListingService {
         .doc(listing.listingId)
         .update(listing.toJson());
   }
+
+  Stream<List<Listing>> getListingsBySeller(String sellerId) {
+    return _firestore
+        .collection('listings')
+        .where('sellerId', isEqualTo: sellerId)
+        .snapshots()
+        .map((snapshot) {
+          return snapshot.docs
+              .map((doc) => Listing.fromJson(doc.data()))
+              .toList();
+        });
+  }
 }

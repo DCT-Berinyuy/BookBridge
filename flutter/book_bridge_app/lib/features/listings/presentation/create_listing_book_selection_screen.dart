@@ -2,11 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class CreateListingBookSelectionScreen extends ConsumerWidget {
+import 'package:book_bridge_app/features/books/domain/book_model.dart';
+import 'package:book_bridge_app/features/books/state/book_provider.dart';
+
+class CreateListingBookSelectionScreen extends ConsumerStatefulWidget {
   const CreateListingBookSelectionScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CreateListingBookSelectionScreen> createState() =>
+      _CreateListingBookSelectionScreenState();
+}
+
+class _CreateListingBookSelectionScreenState
+    extends ConsumerState<CreateListingBookSelectionScreen> {
+  String _searchQuery = '';
+
+  @override
+  Widget build(BuildContext context) {
+    final books = ref.watch(booksStreamProvider);
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -43,6 +57,11 @@ class CreateListingBookSelectionScreen extends ConsumerWidget {
                   borderSide: BorderSide.none,
                 ),
               ),
+              onChanged: (value) {
+                setState(() {
+                  _searchQuery = value.toLowerCase();
+                });
+              },
             ),
           ),
           // Popular categories
@@ -100,41 +119,36 @@ class CreateListingBookSelectionScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 8),
                   Expanded(
-                    child: ListView(
-                      children: [
-                        _BookListItem(
-                          title: 'Introduction to Algorithms',
-                          author: 'Thomas H. Cormen',
-                          edition: '3rd Ed.',
-                          isbn: '9780262033848',
-                          imageUrl:
-                              'https://lh3.googleusercontent.com/aida-public/AB6AXuB2zzhknAoRRcfrEi4tqlDtCCZSIZ9H1Um1JIRfbXdct01Bz8_ViCFgCPzjmmXXTxSHvE1rQshBOALo3g5AFt7kSabNFkrnPQwtDeDhVIKXEUdeb2hBx-Axo2aIlgdlUnEWuigIBSPbQ9IdgFeDTRAzJqr6VhB2NNL1jwOMtZz2hR4HReX-qI1_4pPq1pk8WVV5DRK5SXDcXhfMCsmzzrQt1lilH459dgErBZ2UYakzBHrFdxkOiSXpePxGC0AeDzpTkLP81OsNCaY',
-                        ),
-                        _BookListItem(
-                          title: 'Calculus: Early Transcendentals',
-                          author: 'James Stewart',
-                          edition: '8th Ed.',
-                          isbn: '9781285741550',
-                          imageUrl:
-                              'https://lh3.googleusercontent.com/aida-public/AB6AXuCtcrZHG6vr4F_9DgtZ_9ecAqgWNwMFizp01IceFOZpPD4qFDDjOjzwUlnPukghfTvF0f8uR4Zd81_Ofn-7mFdu_mdsstGOsdy_rn0I3G12B4kBmLgAW67AY0ZgRJwFAoTZBbZLkvmX8jmRF_WWKGMXF4aMrJrxsvHgFZQ5qBj6TIP9BPc06V767cG_moJ-SBlUa8DRCHPCnRrwWnjSkKN4xy4N6gbgJ3avpoVrB3JpCcRKqQlPJ_2mCh4QbcYyHtLOhFzPNFO9j6c',
-                        ),
-                        _BookListItem(
-                          title: 'Organic Chemistry',
-                          author: 'Paula Yurkanis Bruice',
-                          edition: '2016',
-                          isbn: '9780134042282',
-                          imageUrl:
-                              'https://lh3.googleusercontent.com/aida-public/AB6AXuA2yLaKY8ALYDYJSfEF4scQN35HEaqyeEO268EYTj_olEHWE-bu3x4RRMf9xhTS7TtFdUAsJWfcverqcEXD-ns1BQvVRpOutgM_6k5vsC9AdN2xNO2rk90KJRBK3a6OWrCuQHMtrLgkIZOt-p29CLUvUEGHNm9hCrr6rqQfFloCHjXoI9cFdB3CpclF7AqpsmJ2gLOu_z2wFOuuULIGT4Bqnv4IfkDxivPe59VT1fmB66sp_jV1SmeFN5AuMymSUcFG9Aj1s8Pw-D4',
-                        ),
-                        _BookListItem(
-                          title: 'Clean Code',
-                          author: 'Robert C. Martin',
-                          edition: '1st Ed.',
-                          isbn: '9780132350884',
-                          imageUrl:
-                              'https://lh3.googleusercontent.com/aida-public/AB6AXuC82EC77UvK1qDME0rioJlzN7QidhhBSW9040-dHy368K1epupNMKKRVnpqNIqsI0tl60OZadzo7Yow-CxqIjPA1lKKdEc_p8E8lXy2TOS7NmPgp3pE1I9woST5oBhJ7OcR5JddSCEByBE66FFq0tC3R-llRd34vCpzbASBOFTgrwsfmVKUD8mS_ElSH5zrMKT4_FDr6doXIH_0ojDUDY2EAKfrt4XcJy5NBvkQabzpI07OCS4et2qsNgxno3Rssm14dAtNik0RH-s',
-                        ),
-                      ],
+                    child: books.when(
+                      data: (bookList) {
+                        final filteredBooks = bookList
+                            .where(
+                              (book) =>
+                                  book.title.toLowerCase().contains(
+                                    _searchQuery,
+                                  ) ||
+                                  book.author.toLowerCase().contains(
+                                    _searchQuery,
+                                  ) ||
+                                  (book.isbn?.toLowerCase().contains(
+                                        _searchQuery,
+                                      ) ??
+                                      false),
+                            )
+                            .toList();
+
+                        return ListView.builder(
+                          itemCount: filteredBooks.length,
+                          itemBuilder: (context, index) {
+                            final book = filteredBooks[index];
+                            return _BookListItem(book: book);
+                          },
+                        );
+                      },
+                      loading: () =>
+                          const Center(child: CircularProgressIndicator()),
+                      error: (error, stack) =>
+                          Center(child: Text('Error: $error')),
                     ),
                   ),
                 ],
@@ -168,19 +182,9 @@ class _CategoryChip extends StatelessWidget {
 }
 
 class _BookListItem extends StatelessWidget {
-  final String title;
-  final String author;
-  final String edition;
-  final String isbn;
-  final String imageUrl;
+  final Book book;
 
-  const _BookListItem({
-    required this.title,
-    required this.author,
-    required this.edition,
-    required this.isbn,
-    required this.imageUrl,
-  });
+  const _BookListItem({required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +193,7 @@ class _BookListItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           // Navigate to the next step in creating the listing
-          context.push('/listings/create/details');
+          context.push('/listings/create/details', extra: book.bookId);
         },
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -208,30 +212,7 @@ class _BookListItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   color: Colors.grey[300],
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Container(
-                        color: Colors.grey[300],
-                        child: const Center(child: CircularProgressIndicator()),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[300],
-                        child: const Icon(
-                          Icons.error,
-                          size: 24,
-                          color: Colors.grey,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                child: const Icon(Icons.book),
               ),
               const SizedBox(width: 16),
               // Book details
@@ -240,7 +221,7 @@ class _BookListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      book.title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -249,7 +230,7 @@ class _BookListItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      author,
+                      book.author,
                       style: Theme.of(
                         context,
                       ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
@@ -269,7 +250,7 @@ class _BookListItem extends StatelessWidget {
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
-                            edition,
+                            book.edition ?? '',
                             style: const TextStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.w500,
@@ -280,7 +261,7 @@ class _BookListItem extends StatelessWidget {
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
-                            'ISBN: $isbn',
+                            'ISBN: ${book.isbn ?? ''}',
                             style: const TextStyle(
                               fontSize: 10,
                               color: Colors.grey,

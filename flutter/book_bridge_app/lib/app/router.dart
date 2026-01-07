@@ -25,7 +25,7 @@ final GoRouter appRouter = GoRouter(
                 GoRoute(
                   path: 'details',
                   builder: (context, state) =>
-                      const CreateListingDetailsScreen(),
+                      CreateListingDetailsScreen(bookId: state.extra as String),
                 ),
               ],
             ),

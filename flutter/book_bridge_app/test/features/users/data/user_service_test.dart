@@ -11,7 +11,6 @@ import 'user_service_test.mocks.dart';
   FirebaseFirestore,
   CollectionReference,
   DocumentReference,
-  DocumentSnapshot,
 ])
 void main() {
   late UserService userService;
@@ -30,20 +29,41 @@ void main() {
   });
 
   group('UserService', () {
-    final user = User(
-      userId: '1',
-      name: 'Test User',
+    final userModel = UserModel(
+      uid: '1',
       localityId: '1',
-      contact: Contact(phone: '1234567890'),
-      createdAt: DateTime.now(),
+      whatsappNumber: '1234567890',
     );
 
     test('createUser', () async {
       when(
         mockDocumentReference.set(any),
       ).thenAnswer((_) async => Future.value());
-      await userService.createUser(user);
-      verify(mockDocumentReference.set(user.toJson())).called(1);
+      await userService.createUser(userModel);
+      verify(mockDocumentReference.set(userModel.toJson())).called(1);
+    });
+
+    test('getUser', () async {
+      when(mockDocumentReference.get()).thenAnswer(
+        (_) async => MockDocumentSnapshot(
+          {'uid': '1', 'localityId': '1', 'whatsappNumber': '1234567890'},
+        ),
+      );
+      final fetchedUser = await userService.getUser('1');
+      expect(fetchedUser?.uid, userModel.uid);
+      expect(fetchedUser?.localityId, userModel.localityId);
+      expect(fetchedUser?.whatsappNumber, userModel.whatsappNumber);
     });
   });
+}
+
+class MockDocumentSnapshot extends Mock implements DocumentSnapshot<Map<String, dynamic>> {
+  final Map<String, dynamic> _data;
+  MockDocumentSnapshot(this._data);
+
+  @override
+  bool get exists => true;
+
+  @override
+  Map<String, dynamic> data() => _data;
 }
