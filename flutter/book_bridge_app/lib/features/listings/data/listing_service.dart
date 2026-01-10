@@ -19,6 +19,14 @@ class ListingService {
     });
   }
 
+  Future<Listing?> getListing(String listingId) async {
+    final doc = await _firestore.collection('listings').doc(listingId).get();
+    if (doc.exists && doc.data() != null) {
+      return Listing.fromJson(doc.data()!);
+    }
+    return null;
+  }
+
   Future<void> updateListing(Listing listing) async {
     await _firestore
         .collection('listings')

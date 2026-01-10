@@ -16,6 +16,7 @@ class Listing {
   final String localityId;
   final Status status;
   final DateTime createdAt;
+  final String? imageUrl;
 
   Listing({
     required this.listingId,
@@ -26,6 +27,7 @@ class Listing {
     required this.localityId,
     required this.status,
     required this.createdAt,
+    this.imageUrl,
   });
 
   factory Listing.fromJson(Map<String, dynamic> json) =>

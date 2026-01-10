@@ -1,18 +1,41 @@
-rules_version='2'
+rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      // This rule allows anyone with your database reference to view, edit,
-      // and delete all data in your database. It is useful for getting
-      // started, but it is configured to expire after 30 days because it
-      // leaves your app open to attackers. At that time, all client
-      // requests to your database will be denied.
-      //
-      // Make sure to write security rules for your app before that time, or
-      // else all client requests to your database will be denied until you
-      // update your rules.
-      allow read, write: if request.time < timestamp.date(2026, 2, 5);
+    // All access requires authentication
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // User collection rules
+    match /users/{userId} {
+      allow read, create: if isAuthenticated();
+      // Users can only read/write their own documents
+      allow update, delete: if isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Books collection rules
+    match /books/{bookId} {
+      // Books are read-only for users
+      allow read: if isAuthenticated();
+      allow write: if false; // No direct write access for users
+    }
+
+    // Listings collection rules
+    match /listings/{listingId} {
+      allow read: if isAuthenticated();
+
+      // Listings can only be created/updated by the seller
+      // Sold listings are immutable
+      allow create: if isAuthenticated() && request.auth.uid == request.resource.data.sellerId;
+      allow update: if isAuthenticated() && request.auth.uid == resource.data.sellerId && resource.data.status != 'sold';
+      allow delete: if isAuthenticated() && request.auth.uid == resource.data.sellerId && resource.data.status != 'sold';
+    }
+
+    // Locations collection rules (assuming read-only for all authenticated users)
+    match /locations/{locationId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // No direct write access for users
     }
   }
 }

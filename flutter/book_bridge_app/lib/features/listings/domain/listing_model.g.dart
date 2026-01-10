@@ -15,6 +15,7 @@ Listing _$ListingFromJson(Map<String, dynamic> json) => Listing(
   localityId: json['localityId'] as String,
   status: $enumDecode(_$StatusEnumMap, json['status']),
   createdAt: DateTime.parse(json['createdAt'] as String),
+  imageUrl: json['imageUrl'] as String?,
 );
 
 Map<String, dynamic> _$ListingToJson(Listing instance) => <String, dynamic>{
@@ -26,6 +27,7 @@ Map<String, dynamic> _$ListingToJson(Listing instance) => <String, dynamic>{
   'localityId': instance.localityId,
   'status': _$StatusEnumMap[instance.status]!,
   'createdAt': instance.createdAt.toIso8601String(),
+  'imageUrl': instance.imageUrl,
 };
 
 const _$ConditionEnumMap = {

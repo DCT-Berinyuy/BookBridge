@@ -14,67 +14,51 @@ class ListingsFeedScreen extends ConsumerWidget {
     final listings = ref.watch(listingsStreamProvider);
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0,
+        title: const Text(
+          'Browse Listings',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.filter_list),
+            onPressed: () {
+              // Open filter modal
+              _showFilterModal(context);
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.tune),
+            onPressed: () {
+              // Open sort options
+              _showSortModal(context);
+            },
+          ),
+        ],
+      ),
       body: CustomScrollView(
         slivers: [
-          // Header with search and filters
-          SliverAppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            expandedHeight: 180,
-            floating: false,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  'BookBridge',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
+          // Search bar
+          SliverToBoxAdapter(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search books, authors, ISBN...',
+                  prefixIcon: const Icon(Icons.search),
+                  filled: true,
+                  fillColor: Theme.of(context).cardColor,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
                   ),
-                ),
-              ),
-              background: Container(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    // Location and notifications row
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(Icons.location_on, color: Colors.green),
-                            const Text('Near University'),
-                            const Icon(Icons.expand_more),
-                          ],
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.notifications),
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    // Search bar
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search \'Biology 101\' or ISBN...',
-                          prefixIcon: const Icon(Icons.search),
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.tune),
-                            onPressed: () {},
-                          ),
-                          filled: true,
-                          fillColor: Theme.of(context).cardColor,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 14,
+                  ),
                 ),
               ),
             ),
@@ -82,34 +66,41 @@ class ListingsFeedScreen extends ConsumerWidget {
           // Filter chips
           SliverToBoxAdapter(
             child: Container(
-              padding: const EdgeInsets.all(16),
-              child: Wrap(
-                spacing: 8,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              height: 40,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
                 children: [
-                  FilterChip(
-                    label: const Text('Recently Added'),
-                    selected: true,
-                    onSelected: (bool selected) {},
-                  ),
-                  FilterChip(
-                    label: const Text('Price: Low to High'),
-                    selected: false,
-                    onSelected: (bool selected) {},
-                  ),
-                  FilterChip(
-                    label: const Text('Condition: Like New'),
-                    selected: false,
-                    onSelected: (bool selected) {},
-                  ),
-                  FilterChip(
-                    label: const Text('Subject: Math'),
-                    selected: false,
-                    onSelected: (bool selected) {},
-                  ),
+                  _FilterChip(label: 'All Books', isSelected: true),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'Textbooks'),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'Fiction'),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'Science'),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'Math'),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'Engineering'),
                 ],
               ),
             ),
           ),
+          const SliverToBoxAdapter(child: SizedBox(height: 8)),
+          // Listings count
+          SliverToBoxAdapter(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                '128 books available',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Colors.grey[600],
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 8)),
           // Listings list
           listings.when(
             data: (listingList) => SliverList(
@@ -119,13 +110,236 @@ class ListingsFeedScreen extends ConsumerWidget {
               }, childCount: listingList.length),
             ),
             loading: () => const SliverToBoxAdapter(
-              child: Center(child: CircularProgressIndicator()),
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 32),
+                  child: CircularProgressIndicator(),
+                ),
+              ),
             ),
-            error: (error, stack) =>
-                SliverToBoxAdapter(child: Center(child: Text('Error: $error'))),
+            error: (error, stack) => SliverToBoxAdapter(
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 32),
+                  child: Text('Error: $error'),
+                ),
+              ),
+            ),
           ),
         ],
       ),
+    );
+  }
+
+  void _showFilterModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.6,
+          maxChildSize: 0.9,
+          minChildSize: 0.3,
+          expand: false,
+          builder: (context, scrollController) {
+            return Container(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Filters',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: ListView(
+                      controller: scrollController,
+                      children: [
+                        _FilterSection(
+                          title: 'Condition',
+                          options: ['Any', 'Brand New', 'Good', 'Fair', 'Poor'],
+                        ),
+                        const SizedBox(height: 16),
+                        _FilterSection(
+                          title: 'Price Range',
+                          options: ['Any', '\$0-\$20', '\$20-\$50', '\$50+'],
+                        ),
+                        const SizedBox(height: 16),
+                        _FilterSection(
+                          title: 'Distance',
+                          options: ['Any', 'Within 1 mile', 'Within 5 miles', 'Within 10 miles'],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Close modal
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      foregroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text(
+                      'Apply Filters',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _showSortModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'Sort By',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 16),
+              RadioListTile<String>(
+                title: const Text('Most Recent'),
+                value: 'recent',
+                groupValue: 'recent',
+                onChanged: (value) {},
+              ),
+              RadioListTile<String>(
+                title: const Text('Price: Low to High'),
+                value: 'price_asc',
+                groupValue: 'recent',
+                onChanged: (value) {},
+              ),
+              RadioListTile<String>(
+                title: const Text('Price: High to Low'),
+                value: 'price_desc',
+                groupValue: 'recent',
+                onChanged: (value) {},
+              ),
+              RadioListTile<String>(
+                title: const Text('Condition'),
+                value: 'condition',
+                groupValue: 'recent',
+                onChanged: (value) {},
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+// Filter chip widget
+class _FilterChip extends StatelessWidget {
+  final String label;
+  final bool isSelected;
+
+  const _FilterChip({
+    required this.label,
+    this.isSelected = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FilterChip(
+      label: Text(
+        label,
+        style: TextStyle(
+          color: isSelected ? Colors.white : Colors.black,
+          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+        ),
+      ),
+      selected: isSelected,
+      selectedColor: Colors.green,
+      checkmarkColor: Colors.white,
+      onSelected: (bool selected) {},
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(
+          color: isSelected ? Colors.green : Colors.grey.shade300,
+        ),
+      ),
+    );
+  }
+}
+
+// Filter section widget
+class _FilterSection extends StatefulWidget {
+  final String title;
+  final List<String> options;
+
+  const _FilterSection({
+    required this.title,
+    required this.options,
+  });
+
+  @override
+  State<_FilterSection> createState() => _FilterSectionState();
+}
+
+class _FilterSectionState extends State<_FilterSection> {
+  int _selectedIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.title,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          children: List.generate(
+            widget.options.length,
+            (index) => ChoiceChip(
+              label: Text(widget.options[index]),
+              selected: _selectedIndex == index,
+              selectedColor: Colors.green,
+              onSelected: (selected) {
+                setState(() {
+                  _selectedIndex = selected ? index : 0;
+                });
+              },
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -142,7 +356,12 @@ class _ListingCard extends ConsumerWidget {
 
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Colors.grey.shade200),
+      ),
       child: InkWell(
+        borderRadius: BorderRadius.circular(16),
         onTap: () {
           context.push('/listings/${listing.listingId}');
         },
@@ -151,14 +370,40 @@ class _ListingCard extends ConsumerWidget {
           child: Row(
             children: [
               // Book cover image
-              Container(
-                width: 80,
-                height: 112,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.grey[300],
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: SizedBox(
+                  width: 80,
+                  height: 112,
+                  child: listing.imageUrl != null
+                      ? Image.network(
+                          listing.imageUrl!,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (BuildContext context, Widget child,
+                              ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes != null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
+                          errorBuilder: (BuildContext context, Object exception,
+                              StackTrace? stackTrace) {
+                            return Container(
+                              color: Colors.grey[300],
+                              child: const Icon(Icons.book, size: 40),
+                            );
+                          },
+                        )
+                      : Container(
+                          color: Colors.grey[300],
+                          child: const Icon(Icons.book, size: 40),
+                        ),
                 ),
-                child: const Icon(Icons.book, size: 40),
               ),
               const SizedBox(width: 12),
               // Book details
@@ -184,7 +429,10 @@ class _ListingCard extends ConsumerWidget {
                         ),
                         IconButton(
                           icon: const Icon(Icons.favorite_border),
-                          onPressed: () {},
+                          onPressed: () {
+                            // Toggle favorite
+                          },
+                          splashRadius: 20,
                         ),
                       ],
                     ),
@@ -193,8 +441,8 @@ class _ListingCard extends ConsumerWidget {
                       data: (bookData) => Text(
                         bookData?.author ?? 'Author Not Found',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Colors.grey[600],
-                        ),
+                              color: Colors.grey[600],
+                            ),
                       ),
                       loading: () => const Text('Loading...'),
                       error: (error, stack) => const Text('Error'),

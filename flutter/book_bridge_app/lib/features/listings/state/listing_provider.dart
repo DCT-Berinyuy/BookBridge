@@ -15,6 +15,10 @@ final listingsStreamProvider = StreamProvider<List<Listing>>((ref) {
   return ref.watch(listingServiceProvider).getListings();
 });
 
+final listingProvider = FutureProvider.family<Listing?, String>((ref, listingId) {
+  return ref.watch(listingServiceProvider).getListing(listingId);
+});
+
 final listingsProvider = StateNotifierProvider<ListingsNotifier, List<Listing>>(
   (ref) {
     return ListingsNotifier(ref.watch(listingServiceProvider));

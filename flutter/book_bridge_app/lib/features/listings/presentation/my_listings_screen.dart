@@ -13,15 +13,64 @@ class MyListingsScreen extends ConsumerStatefulWidget {
   ConsumerState<MyListingsScreen> createState() => _MyListingsScreenState();
 }
 
-class _MyListingsScreenState extends ConsumerState<MyListingsScreen> {
-  bool _showActive = true;
+class _MyListingsScreenState extends ConsumerState<MyListingsScreen>
+    with TickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final currentUser = ref.watch(authStateChangesProvider).asData?.value;
 
     if (currentUser == null) {
-      return const Center(child: Text('Please sign in to see your listings.'));
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'My Listings',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+        ),
+        body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.lock_outline,
+                size: 80,
+                color: Colors.grey,
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Please sign in to see your listings',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Your listings will appear here once you\'re signed in',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
     }
 
     final listings = ref.watch(listingsBySellerProvider(currentUser.uid));
@@ -34,69 +83,101 @@ class _MyListingsScreenState extends ConsumerState<MyListingsScreen> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(icon: const Icon(Icons.search), onPressed: () {}),
-          IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
+          IconButton(
+            icon: const Icon(Icons.add_circle_outline),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/listings/create');
+            },
+          ),
         ],
-      ),
-      body: Column(
-        children: [
-          // Segmented control for tabs
-          Container(
-            margin: const EdgeInsets.all(16),
-            height: 48,
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: _TabButton(
-                    label: 'Active',
-                    isActive: _showActive,
-                    onTap: () {
-                      setState(() {
-                        _showActive = true;
-                      });
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: _TabButton(
-                    label: 'Sold/Archived',
-                    isActive: !_showActive,
-                    onTap: () {
-                      setState(() {
-                        _showActive = false;
-                      });
-                    },
-                  ),
-                ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(48),
+          child: Container(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: TabBar(
+              controller: _tabController,
+              indicatorColor: Colors.green,
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.grey,
+              tabs: const [
+                Tab(text: 'Active'),
+                Tab(text: 'Inactive'),
               ],
             ),
           ),
-          // Listings list
-          Expanded(
-            child: listings.when(
-              data: (listingList) {
-                final filteredList = listingList.where((listing) {
-                  final isActive =
-                      listing.status == Status.available ||
-                      listing.status == Status.reserved;
-                  return _showActive ? isActive : !isActive;
-                }).toList();
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          // Active listings tab
+          listings.when(
+            data: (listingList) {
+              final activeListings = listingList.where((listing) {
+                return listing.status == Status.available ||
+                       listing.status == Status.reserved;
+              }).toList();
 
-                return ListView.builder(
-                  itemCount: filteredList.length,
-                  itemBuilder: (context, index) {
-                    final listing = filteredList[index];
-                    return _ListingCard(listing: listing);
-                  },
+              if (activeListings.isEmpty) {
+                return const _EmptyState(
+                  title: 'No active listings',
+                  subtitle: 'You don\'t have any active listings yet.\nStart by creating your first listing!',
+                  icon: Icons.book_outlined,
                 );
-              },
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error: (error, stack) => Center(child: Text('Error: $error')),
-            ),
+              }
+
+              return RefreshIndicator(
+                onRefresh: () async {
+                  // Refresh the listings
+                },
+                child: ListView.builder(
+                  itemCount: activeListings.length,
+                  itemBuilder: (context, index) {
+                    final listing = activeListings[index];
+                    return _ListingCard(
+                      listing: listing,
+                      isSold: false,
+                    );
+                  },
+                ),
+              );
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, stack) => Center(child: Text('Error: $error')),
+          ),
+          // Inactive listings tab
+          listings.when(
+            data: (listingList) {
+              final inactiveListings = listingList.where((listing) {
+                return listing.status == Status.sold;
+              }).toList();
+
+              if (inactiveListings.isEmpty) {
+                return const _EmptyState(
+                  title: 'No inactive listings',
+                  subtitle: 'Your sold listings will appear here.',
+                  icon: Icons.sell_outlined,
+                );
+              }
+
+              return RefreshIndicator(
+                onRefresh: () async {
+                  // Refresh the listings
+                },
+                child: ListView.builder(
+                  itemCount: inactiveListings.length,
+                  itemBuilder: (context, index) {
+                    final listing = inactiveListings[index];
+                    return _ListingCard(
+                      listing: listing,
+                      isSold: true,
+                    );
+                  },
+                ),
+              );
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, stack) => Center(child: Text('Error: $error')),
           ),
         ],
       ),
@@ -104,42 +185,70 @@ class _MyListingsScreenState extends ConsumerState<MyListingsScreen> {
   }
 }
 
-class _TabButton extends StatelessWidget {
-  final String label;
-  final bool isActive;
-  final VoidCallback onTap;
+class _EmptyState extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
 
-  const _TabButton({
-    required this.label,
-    required this.isActive,
-    required this.onTap,
+  const _EmptyState({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: isActive ? Colors.green : Colors.transparent,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Center(
-              child: Text(
-                label,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: isActive ? Colors.black : Colors.grey[600],
-                ),
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 80,
+              color: Colors.grey[400],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey,
               ),
             ),
-          ),
+            const SizedBox(height: 8),
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[600],
+              ),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/listings/create');
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.black,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 12,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text(
+                'Create Listing',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -148,37 +257,76 @@ class _TabButton extends StatelessWidget {
 
 class _ListingCard extends ConsumerWidget {
   final Listing listing;
+  final bool isSold;
 
-  const _ListingCard({required this.listing});
+  const _ListingCard({
+    required this.listing,
+    required this.isSold,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final book = ref.watch(bookProvider(listing.bookId));
-    final isSold = listing.status == Status.sold;
 
-    return Opacity(
-      opacity: isSold ? 0.9 : 1.0,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          color: isSold ? Colors.grey[100] : Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.grey[200]!),
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: isSold
+              ? Colors.grey.shade300
+              : listing.status == Status.reserved
+                  ? Colors.orange.shade200
+                  : Colors.grey.shade200,
         ),
+      ),
+      color: isSold ? Colors.grey[50] : null,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {
+          // Navigate to listing details
+          Navigator.of(context).pushNamed('/listings/${listing.listingId}');
+        },
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(16),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Book cover image
-              Container(
-                width: 100,
-                height: 133,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.grey[300],
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: SizedBox(
+                  width: 80,
+                  height: 112,
+                  child: listing.imageUrl != null
+                      ? Image.network(
+                          listing.imageUrl!,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (BuildContext context, Widget child,
+                              ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes != null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
+                          errorBuilder: (BuildContext context, Object exception,
+                              StackTrace? stackTrace) {
+                            return Container(
+                              color: Colors.grey[300],
+                              child: const Icon(Icons.book, size: 40),
+                            );
+                          },
+                        )
+                      : Container(
+                          color: Colors.grey[300],
+                          child: const Icon(Icons.book, size: 40),
+                        ),
                 ),
-                child: const Icon(Icons.book),
               ),
               const SizedBox(width: 12),
               // Book details
@@ -208,8 +356,7 @@ class _ListingCard extends ConsumerWidget {
                                           : Colors.grey[300],
                                       borderRadius: BorderRadius.circular(12),
                                       border: Border.all(
-                                        color:
-                                            listing.status == Status.available
+                                        color: listing.status == Status.available
                                             ? Colors.green[300]!
                                             : listing.status == Status.reserved
                                             ? Colors.orange[300]!
@@ -219,8 +366,7 @@ class _ListingCard extends ConsumerWidget {
                                     child: Text(
                                       listing.status.name,
                                       style: TextStyle(
-                                        color:
-                                            listing.status == Status.available
+                                        color: listing.status == Status.available
                                             ? Colors.green[700]
                                             : listing.status == Status.reserved
                                             ? Colors.orange[700]
@@ -253,9 +399,25 @@ class _ListingCard extends ConsumerWidget {
                             ],
                           ),
                         ),
-                        IconButton(
-                          icon: const Icon(Icons.more_vert),
-                          onPressed: () {},
+                        PopupMenuButton<String>(
+                          onSelected: (String result) {
+                            _handleMenuSelection(result, context);
+                          },
+                          itemBuilder: (BuildContext context) => [
+                            const PopupMenuItem<String>(
+                              value: 'edit',
+                              child: Text('Edit Listing'),
+                            ),
+                            const PopupMenuItem<String>(
+                              value: 'share',
+                              child: Text('Share'),
+                            ),
+                            if (listing.status == Status.available)
+                              const PopupMenuItem<String>(
+                                value: 'deactivate',
+                                child: Text('Deactivate'),
+                              ),
+                          ],
                         ),
                       ],
                     ),
@@ -273,15 +435,18 @@ class _ListingCard extends ConsumerWidget {
                       Row(
                         children: [
                           Expanded(
+                            flex: 2,
                             child: OutlinedButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(Icons.edit, size: 18),
+                              onPressed: () {
+                                // Edit listing
+                              },
+                              icon: const Icon(Icons.edit, size: 16),
                               label: const Text('Edit'),
                               style: OutlinedButton.styleFrom(
                                 foregroundColor: Colors.grey[700],
                                 side: BorderSide(color: Colors.grey[300]!),
                                 padding: const EdgeInsets.symmetric(
-                                  vertical: 12,
+                                  vertical: 10,
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
@@ -291,15 +456,18 @@ class _ListingCard extends ConsumerWidget {
                           ),
                           const SizedBox(width: 8),
                           Expanded(
-                            child: OutlinedButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(Icons.share, size: 18),
+                            flex: 3,
+                            child: ElevatedButton.icon(
+                              onPressed: () {
+                                // Share listing
+                              },
+                              icon: const Icon(Icons.share, size: 16),
                               label: const Text('Share'),
-                              style: OutlinedButton.styleFrom(
-                                foregroundColor: Colors.grey[700],
-                                side: BorderSide(color: Colors.grey[300]!),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey[100],
+                                foregroundColor: Colors.grey[800],
                                 padding: const EdgeInsets.symmetric(
-                                  vertical: 12,
+                                  vertical: 10,
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
@@ -314,14 +482,16 @@ class _ListingCard extends ConsumerWidget {
                         children: [
                           Expanded(
                             child: ElevatedButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(Icons.check_circle, size: 18),
+                              onPressed: () {
+                                // Mark as sold
+                              },
+                              icon: const Icon(Icons.check_circle, size: 16),
                               label: const Text('Mark Sold'),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,
                                 foregroundColor: Colors.black,
                                 padding: const EdgeInsets.symmetric(
-                                  vertical: 12,
+                                  vertical: 10,
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
@@ -335,18 +505,19 @@ class _ListingCard extends ConsumerWidget {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
+                          color: Colors.green[50],
                           borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.green[200]!),
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(Icons.check_circle, color: Colors.grey[600]),
+                            Icon(Icons.check_circle, color: Colors.green[700]),
                             const SizedBox(width: 4),
                             Text(
                               'Sold',
                               style: TextStyle(
-                                color: Colors.grey[600],
+                                color: Colors.green[700],
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -361,5 +532,19 @@ class _ListingCard extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  void _handleMenuSelection(String value, BuildContext context) {
+    switch (value) {
+      case 'edit':
+        // Handle edit action
+        break;
+      case 'share':
+        // Handle share action
+        break;
+      case 'deactivate':
+        // Handle deactivate action
+        break;
+    }
   }
 }

@@ -11,17 +11,20 @@ import 'user_service_test.mocks.dart';
   FirebaseFirestore,
   CollectionReference,
   DocumentReference,
+  DocumentSnapshot,
 ])
 void main() {
   late UserService userService;
   late MockFirebaseFirestore mockFirestore;
   late MockCollectionReference<Map<String, dynamic>> mockCollectionReference;
   late MockDocumentReference<Map<String, dynamic>> mockDocumentReference;
+  late MockDocumentSnapshot<Map<String, dynamic>> mockDocumentSnapshot;
 
   setUp(() {
     mockFirestore = MockFirebaseFirestore();
     mockCollectionReference = MockCollectionReference();
     mockDocumentReference = MockDocumentReference();
+    mockDocumentSnapshot = MockDocumentSnapshot();
     userService = UserService(mockFirestore);
 
     when(mockFirestore.collection('users')).thenReturn(mockCollectionReference);
@@ -44,26 +47,14 @@ void main() {
     });
 
     test('getUser', () async {
-      when(mockDocumentReference.get()).thenAnswer(
-        (_) async => MockDocumentSnapshot(
-          {'uid': '1', 'localityId': '1', 'whatsappNumber': '1234567890'},
-        ),
-      );
+      when(mockDocumentReference.get())
+          .thenAnswer((_) async => mockDocumentSnapshot);
+      when(mockDocumentSnapshot.exists).thenReturn(true);
+      when(mockDocumentSnapshot.data()).thenReturn(userModel.toJson());
       final fetchedUser = await userService.getUser('1');
       expect(fetchedUser?.uid, userModel.uid);
       expect(fetchedUser?.localityId, userModel.localityId);
       expect(fetchedUser?.whatsappNumber, userModel.whatsappNumber);
     });
   });
-}
-
-class MockDocumentSnapshot extends Mock implements DocumentSnapshot<Map<String, dynamic>> {
-  final Map<String, dynamic> _data;
-  MockDocumentSnapshot(this._data);
-
-  @override
-  bool get exists => true;
-
-  @override
-  Map<String, dynamic> data() => _data;
 }
